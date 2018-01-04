@@ -12,8 +12,15 @@ AddElement.prototype.init = function() {
         localStorage.setItem(counter + ' Thing to do', content.value)
         counter++
     }
-
     addToLocalStorage()
+
+    // remove content from local storage
+    function removeFromLocalStorage() {
+        localStorage.removeItem((counter-1) + ' Thing to do')
+        counter--
+    }
+
+    deleteSingleElement.addEventListener('click', removeFromLocalStorage)
 
 	// new div which contains single element of the list
     var newPosition = document.createElement('div')
@@ -26,7 +33,7 @@ AddElement.prototype.init = function() {
 	content.value = ''
 	newPosition.appendChild(elementText)
 
-	// button which deletes current element of the list...
+	// button which deletes current element of the list
     var deleteSingleElement = document.createElement('button')
 	deleteSingleElement.className = 'deleteSingleElementBtn'
 	deleteSingleElement.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>'
@@ -38,14 +45,6 @@ AddElement.prototype.init = function() {
 	}
 
 	deleteSingleElement.addEventListener('click', removeSingleElement)
-
-    // ... and from local storage
-	function removeFromLocalStorage() {
-        localStorage.removeItem((counter-1) + ' Thing to do')
-		counter--
-	}
-
-    deleteSingleElement.addEventListener('click', removeFromLocalStorage)
 }
 
 // add list element (button)
@@ -61,6 +60,8 @@ addButton.addEventListener('click', createListElement)
 function clearList() {
 	var content = document.getElementById('myList')
 	content.innerHTML = ''
+    localStorage.clear()
+    counter = 1
 }
 
 var clearListButton = document.getElementById('clearList')
