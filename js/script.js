@@ -14,14 +14,6 @@ AddElement.prototype.init = function() {
     }
     addToLocalStorage()
 
-    // remove content from local storage
-    function removeFromLocalStorage() {
-        localStorage.removeItem((counter-1) + ' Thing to do')
-        counter--
-    }
-
-    deleteSingleElement.addEventListener('click', removeFromLocalStorage)
-
 	// new div which contains single element of the list
     var newPosition = document.createElement('div')
  	newPosition.className = 'newElement'
@@ -45,6 +37,14 @@ AddElement.prototype.init = function() {
 	}
 
 	deleteSingleElement.addEventListener('click', removeSingleElement)
+
+    // remove content from local storage
+    function removeFromLocalStorage() {
+        localStorage.removeItem((counter-1) + ' Thing to do')
+        counter--
+    }
+
+    deleteSingleElement.addEventListener('click', removeFromLocalStorage)
 }
 
 // add list element (button)
