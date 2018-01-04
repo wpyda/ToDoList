@@ -6,6 +6,8 @@ AddElement.prototype.init = function() {
 
     var content = document.getElementById('textArea')
 
+    // add content to localStorage
+    var counter = 1
     function addToLocalStorage() {
         localStorage.setItem(counter + ' Thing to do', content.value)
         counter++
@@ -58,6 +60,3 @@ function clearList() {
 
 var clearListButton = document.getElementById('clearList')
 clearListButton.addEventListener('click', clearList)
-
-// add content to localStorage
-var counter = 1
