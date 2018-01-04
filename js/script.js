@@ -1,32 +1,31 @@
-function createListElement() {
-	var content = document.getElementById('textArea')
-
-	// ADD CONTENT TO LOCAL STORAGE
-
-	localStorage.setItem('What To Do', content.value);
-
-	// NEW DIV WHICH CONTAINS TEXT + REMOVE SINGLE ELEMENT BTN
-
-	var newPosition = document.createElement('div')
-	newPosition.className = 'newElement'
-	document.getElementById('myList').appendChild(newPosition)
-
-	// e.preventDefault()    + e jako argument funckji || button w form jako default przeladowuje strone na action 
-	// 					 	 		(a jak nie ma action, to przeladowuje strone), wiec trzeba dodac preventa 
-	// 					 	 		lub wyjac buttona z form
+function AddElement(){}
 
 
-	// TEXT DIV
 
-	var elementText = document.createElement('div')
-	elementText.innerHTML = content.value
+AddElement.prototype.init = function() {
+
+    var content = document.getElementById('textArea')
+
+    function addToLocalStorage() {
+        localStorage.setItem(counter + ' Thing to do', content.value)
+        counter++
+    }
+
+    addToLocalStorage()
+
+	// new div which contains single element of the list
+    var newPosition = document.createElement('div')
+ 	newPosition.className = 'newElement'
+ 	document.getElementById('myList').appendChild(newPosition)
+
+	// div which takes value from textArea (typed by user) and puts it inside brand new div inside newPosition
+    var elementText = document.createElement('div')
+ 	elementText.innerHTML = content.value
 	content.value = ''
-
 	newPosition.appendChild(elementText)
 
-// REMOVE SINGLE ELEMENT BUTTON AND FUNCTION
-
-	var deleteSingleElement = document.createElement('button')
+	// button which deletes current element of the list
+    var deleteSingleElement = document.createElement('button')
 	deleteSingleElement.className = 'deleteSingleElementBtn'
 	deleteSingleElement.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>'
 	deleteSingleElement.style.textAlign = 'center'
@@ -34,19 +33,24 @@ function createListElement() {
 
 	function removeSingleElement () {
 		newPosition.remove()
-		localStorage.removeItem('What To Do')
+
+		// remove content from localStorage
+		localStorage.removeItem(' Thing to do')
 	}
 
 	deleteSingleElement.addEventListener('click', removeSingleElement)
 }
 
-// ADD LIST ELEMENT BUTTON
+// add list element (button)
+function createListElement() {
+	var el = new AddElement
+	el.init()
+}
 
 var addButton = document.getElementById('addListPos')
 addButton.addEventListener('click', createListElement)
 
-// CLEAR LIST FUNCTION AND BUTTON
-
+// clear list (button + function)
 function clearList() {
 	var content = document.getElementById('myList')
 	content.innerHTML = ''
@@ -54,3 +58,6 @@ function clearList() {
 
 var clearListButton = document.getElementById('clearList')
 clearListButton.addEventListener('click', clearList)
+
+// add content to localStorage
+var counter = 1
