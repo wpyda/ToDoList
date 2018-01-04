@@ -1,0 +1,97 @@
+body {
+	background: gray;
+	color: #fff;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+	width: 50em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.container h1 {
+	text-align: center;
+}
+
+#myList {
+	width: 98%;
+	margin: auto;
+	padding: 10px 0;
+	background: #ddd;
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
+.newElement {
+	background: rgba(48, 43, 99, 0.3);
+	border: 1px solid #302b63;
+	border-radius: 10px;
+	padding: 1.5em 0.25em;
+	margin: 0.5em 1em;
+	position: relative;
+	text-indent: 15px;
+}
+
+.deleteSingleElementBtn {
+	position: absolute;
+	top: 50%;
+	left: 90%;
+	transform: translate(0, -50%);
+}
+
+.header {
+	background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+	padding: 1em;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.inputs {
+	height: 50px;
+	position: relative;
+}
+
+#textArea {
+	height: 100%;
+	width: 80%;
+	background: rgba(255, 255, 255, 0.2);
+	border: none;
+	font-size: 1.5em;
+	border-radius: 8px;
+	color: #fff;
+	text-indent: 15px;
+}
+
+.add-clear {
+	height: 100%;
+	width: 8%;
+	color: #000;
+	border: 0;
+	position: absolute;
+	top: 0;
+	transition: all 0.3s ease-in-out;
+}
+
+.add-clear:hover {
+	cursor: pointer;
+	background: (255, 255, 255, 0.2);
+	color: #24243e;
+}
+
+.add {
+	right: 9%;
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
+.clear {
+	right: 0;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+.fa {
+	font-size: 2em;
+}
