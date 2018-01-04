@@ -1,13 +1,13 @@
 function AddElement(){}
 
-
+// counter from addToLocalStorage function - when it's inside of the prototype, it fails
+var counter = 1
 
 AddElement.prototype.init = function() {
 
     var content = document.getElementById('textArea')
 
     // add content to localStorage
-    var counter = 1
     function addToLocalStorage() {
         localStorage.setItem(counter + ' Thing to do', content.value)
         counter++
