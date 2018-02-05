@@ -1,8 +1,8 @@
-# To Do List
+# JavaScript ToDo List
 [in progress] A very simple javascript 'to do' list. Added tasks are saved into local storage.
 
 ## Demo
-http://responsible-hand.surge.sh/
+[Online demo version](https://wpyda.github.io/ToDoList/)
 
 ## Instruction
 Type your task into a text field and add it to your list (+).
